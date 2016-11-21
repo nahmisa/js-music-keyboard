@@ -32,7 +32,7 @@ var clickToPlayTone = function() {
 var typeToPlayTone = function() {
   var index = getAudioSourceIndex();
 
-  $('.instrument').keydown(function(event) {
+  $(window).keydown(function(event) {
 
     var note = event.key;
 

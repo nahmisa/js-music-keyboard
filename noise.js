@@ -28,6 +28,23 @@ var clickToPlayTone = function() {
 
 };
 
+var flashColorOnPlay = function(note) {
+
+  // flashes color like clicking
+
+  // adds color
+  $('.' + note).addClass('active');
+
+  // removes color
+  var resetColor = function() {
+    $('.' + note).removeClass('active');
+  };
+
+  // delays removal of color to give the flash
+  var timeoutID = window.setTimeout(resetColor, 100);
+
+};
+
 
 var typeToPlayTone = function() {
   var index = getAudioSourceIndex();
@@ -44,9 +61,12 @@ var typeToPlayTone = function() {
     else if (note == 'a') {$('#aAudio')[index].play();}
     else if (note == 'b') {$('#bAudio')[index].play();}
 
-  });
+    flashColorOnPlay(note);
 
+  });
 };
+
+
 
 $(document).ready( function() {
   clickToPlayTone();

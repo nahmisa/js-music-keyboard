@@ -1,4 +1,4 @@
-var getSourceIndex = function() {
+var getAudioSourceIndex = function() {
   var audio = document.createElement('audio');
   if (audio.canPlayType('audio/mpeg;')) {
       return 0;
@@ -10,7 +10,7 @@ var getSourceIndex = function() {
 };
 
 var clickToPlayTone = function() {
-  var index = getSourceIndex();
+  var index = getAudioSourceIndex();
 
   $('.instrument').on('click', 'button', function(event) {
 
@@ -30,7 +30,7 @@ var clickToPlayTone = function() {
 
 
 var typeToPlayTone = function() {
-  var index = getSourceIndex();
+  var index = getAudioSourceIndex();
 
   $('.instrument').keydown(function(event) {
 

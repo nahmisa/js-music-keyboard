@@ -12,17 +12,11 @@ var getAudioSourceIndex = function() {
 var clickToPlayTone = function() {
   var index = getAudioSourceIndex();
 
-  $('.instrument').on('click', 'button', function(event) {
+    $('.instrument').on('click', 'button', function(event) {
 
-    var note = $(this);
-
-    if (note.hasClass('c')) {$('#cAudio')[index].play();}
-    else if (note.hasClass('d')) {$('#dAudio')[index].play();}
-    else if (note.hasClass('e')) {$('#eAudio')[index].play();}
-    else if (note.hasClass('f')) {$('#fAudio')[index].play();}
-    else if (note.hasClass('g')) {$('#gAudio')[index].play();}
-    else if (note.hasClass('a')) {$('#aAudio')[index].play();}
-    else if (note.hasClass('b')) {$('#bAudio')[index].play();}
+    // classes are named 'note *' --> note = 5
+    var noteLetter = $(this).attr('class')[5];
+    $('#' + noteLetter + 'Audio')[index].play();
 
   });
 
@@ -51,17 +45,10 @@ var typeToPlayTone = function() {
 
   $(window).keydown(function(event) {
 
-    var note = event.key;
+    var noteLetter = event.key;
+    $('#' + noteLetter + 'Audio')[index].play();
 
-    if (note == 'c') {$('#cAudio')[index].play();}
-    else if (note == 'd') {$('#dAudio')[index].play();}
-    else if (note == 'e') {$('#eAudio')[index].play();}
-    else if (note == 'f') {$('#fAudio')[index].play();}
-    else if (note == 'g') {$('#gAudio')[index].play();}
-    else if (note == 'a') {$('#aAudio')[index].play();}
-    else if (note == 'b') {$('#bAudio')[index].play();}
-
-    flashColorOnPlay(note);
+    flashColorOnPlay(noteLetter);
 
   });
 };
